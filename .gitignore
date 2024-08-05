@@ -1,0 +1,6 @@
+config.json
+credentials.json
+device.json
+token.json
+__pycache__/
+venv/
