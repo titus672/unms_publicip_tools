@@ -5,10 +5,14 @@ from connectors import test_nms_connector, nms_connector
 from unms_devices import Device
 from sheets import Sheet, find_value_in_sheet
 from misc_tools import Debug
-import time
+import time, os
 
 
 def main():
+    # change cwd so relative paths work
+    cwd = os.path.dirname(__file__)
+    os.chdir(cwd)
+    print(os.getcwd())
     debug = Debug()
     devices = []
     d = nms_connector("devices?withInterfaces=True&authorized=True")

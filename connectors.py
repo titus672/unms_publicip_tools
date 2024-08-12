@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 import requests
 from config import CONFIG
-config = CONFIG()
 
 def nms_connector(endpoint, action="get"):
+    config = CONFIG()
     url = f"https://{config.unms_url}/nms/api/v2.1/{endpoint}"
     headers = {"x-auth-token": config.unms_api_key, "accept": "application/json"}
     request = requests.request(action, url, headers=headers)

@@ -20,6 +20,7 @@ class Debug:
     def debug(self, message):
         if self.verbose:
             print(message)
+
 def main():
     debug = Debug()
     debug.debug("verbose is enabled")
