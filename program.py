@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 from googleapiclient.errors import HttpError
-from connectors import test_nms_connector, nms_connector
+from connectors import nms_connector
 from unms_devices import Device
 from sheets import Sheet, find_value_in_sheet
 from misc_tools import Debug
-import time, os
+import time
+import os
 
 
 def main():
@@ -48,6 +49,7 @@ def main():
                     sheet.update_range(range, name)
                     debug.debug(f"{range}, {address}, {name}")
                     debug.debug("sleeping 1s")
+
+
 if __name__ == "__main__":
     main()
-    
