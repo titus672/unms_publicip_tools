@@ -1,0 +1,6 @@
+{
+  "unms_url": "ucrm.example.com",
+  "unms_api_key": "your_api_key here",
+  "spreadsheet_id": "spreadsheet_id key here",
+  "range": "Master IP Record!A2:R257"
+}
