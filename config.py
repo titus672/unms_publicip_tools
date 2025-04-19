@@ -2,6 +2,8 @@
 import json
 
 # Config class to handle all config options such as api_keys etc...
+
+
 class CONFIG:
     def __init__(self):
         try:
@@ -12,9 +14,12 @@ class CONFIG:
                 self.spreadsheet_id = config.get("spreadsheet_id", "sample_id")
                 self.range = config.get("range", "sample_range")
                 self.page = self.range.split("!")[0]
+                self.range_to_clear = config.get(
+                    "range_to_clear", "sample_range")
         except FileNotFoundError:
             print("config file not found exiting NOW")
             exit(1)
+
     def __str__(self):
         return f"url = {self.unms_url},\napi_key = {self.unms_api_key},\npage = {self.page}"
 
@@ -23,6 +28,7 @@ class CONFIG:
 def main():
     config = CONFIG()
     print(config)
+
 
 if __name__ == "__main__":
     main()

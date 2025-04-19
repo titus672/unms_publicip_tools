@@ -7,6 +7,7 @@ from sheets import Sheet, find_value_in_sheet
 from misc_tools import Debug
 import time
 import os
+import argparse
 
 
 def main():
@@ -14,13 +15,27 @@ def main():
     cwd = os.path.dirname(__file__)
     os.chdir(cwd)
     print(os.getcwd())
-    debug = Debug()
+    # Parse arguments
+    parser = argparse.ArgumentParser(
+        prog="IP Updater",
+        description="Updates a spreadsheet with public ip's"
+    )
+    parser.add_argument("-v", "--verbose", action="store_true")
+    parser.add_argument("-c", "--clear", action="store_true")
+    args = parser.parse_args()
+    # initialize debug
+    debug = Debug(args)
+    # get UISP Devices
     devices = []
     d = nms_connector("devices?withInterfaces=True&authorized=True")
     for device in d:
         devices.append(Device(device))
+    # Initialize sheet
     sheet = Sheet()
     values = sheet.get_range(sheet.range)
+    if args.clear:
+        debug.debug(sheet.config.range_to_clear)
+        sheet.clear_ranges()
 
     # list of tuples with the index, ip_address and device name
     indexes = []
