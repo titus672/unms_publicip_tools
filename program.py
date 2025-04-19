@@ -20,8 +20,10 @@ def main():
         prog="IP Updater",
         description="Updates a spreadsheet with public ip's"
     )
-    parser.add_argument("-v", "--verbose", action="store_true")
-    parser.add_argument("-c", "--clear", action="store_true")
+    parser.add_argument("-v", "--verbose", action="store_true",
+                        help="toggle debug output")
+    parser.add_argument("-c", "--clear", action="store_true",
+                        help="clear sheet before populating")
     args = parser.parse_args()
     # initialize debug
     debug = Debug(args)
