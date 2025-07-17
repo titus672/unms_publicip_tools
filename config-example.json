@@ -2,5 +2,14 @@
   "unms_url": "ucrm.example.com",
   "unms_api_key": "your_api_key here",
   "spreadsheet_id": "spreadsheet_id key here",
-  "range": "Master IP Record!A2:R257"
+  "range": "Master IP Record!A2:R257",
+  "range_to_clear": [
+    "Master IP Record!C2:C257",
+    "Master IP Record!F2:F257",
+    "Master IP Record!I2:I257",
+    "Master IP Record!L2:L257",
+    "Master IP Record!O2:O257",
+    "Master IP Record!R2:R257"
+  ],
+  "discord_webhook": ""
 }

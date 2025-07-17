@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
 from googleapiclient.errors import HttpError
-from connectors import nms_connector
+from connectors import nms_connector, discord_webhook
 from unms_devices import Device
 from sheets import Sheet, find_value_in_sheet
 from misc_tools import Debug
 import time
 import os
 import argparse
+from config import CONFIG
 
 
 def main():
@@ -69,4 +70,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        config = CONFIG()
+        discord_webhook(config.discord_webhook, e)

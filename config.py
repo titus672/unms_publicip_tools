@@ -16,6 +16,7 @@ class CONFIG:
                 self.page = self.range.split("!")[0]
                 self.range_to_clear = config.get(
                     "range_to_clear", "sample_range")
+                self.discord_webhook = config.get("discord_webhook", "https://example.com")
         except FileNotFoundError:
             print("config file not found exiting NOW")
             exit(1)

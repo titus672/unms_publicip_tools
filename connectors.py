@@ -3,6 +3,11 @@ import requests
 from config import CONFIG
 
 
+def discord_webhook(url, data):
+    contents = {"content": data}
+    requests.post(url, json=contents)
+
+
 def nms_connector(endpoint, action="get"):
     config = CONFIG()
     url = f"https://{config.unms_url}/nms/api/v2.1/{endpoint}"
@@ -32,7 +37,8 @@ def main():
     try:
         devices = nms_connector("devices")
         print(json.dumps(devices, indent=4))
-    except:
+    except Exception as e:
+        print(e)
         exit(1)
 
 
