@@ -4,7 +4,7 @@ from config import CONFIG
 
 
 def discord_webhook(url, data):
-    contents = {"content": data}
+    contents = {"content": str(data)}
     requests.post(url, json=contents)
 
 
